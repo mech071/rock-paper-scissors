@@ -1,0 +1,94 @@
+body {
+    background-color: #FFBE98;
+}
+
+
+
+.hero {
+    text-align: center;
+    color: rgb(83, 75, 189);
+    font-family: "Baloo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 28px;
+}
+
+.scores {
+    display: flex;
+    justify-content: space-around;
+    width: 400px;
+    margin: 0 auto;
+    font-family: "Baloo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 634;
+    font-style: normal;
+    font-size: 28px;
+    color: #42571f;
+}
+
+
+.score-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 24px;
+}
+
+.label {
+    margin-bottom: 5px;
+}
+
+.player-score,
+.computer-score {
+    font-size: 38px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    color: black;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.btn {
+    border-radius: 5px;
+    border: none;
+    height: 100%;
+    width: auto;
+    padding: 16px 30px;
+    font-family: "Baloo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 634;
+    font-style: normal;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    background-color: blueviolet;
+    cursor: pointer;
+}
+
+
+.round-info {
+    text-align: center;
+    font-family: "Merienda", cursive;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 20px;
+    margin: 50px;
+    color: #141111;
+}   
+
+.winner {
+    display: block;
+    text-align: center;
+    font-family: "Merienda", cursive;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+    font-size: 28px;
+    margin-top: 30px;
+    margin-bottom: 70px;
+    color: #1f020e;
+}

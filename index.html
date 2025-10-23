@@ -1,12 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="script.js"></script>
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css">
+    </link>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&family=Merienda:wght@300..900&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
-    
+    <div class="hero">
+        <h1>
+            Rock Paper Scissors
+        </h1>
+    </div>
+    <div class="scores">
+        <div class="score-column">
+            <span class="label">Your Score</span>
+            <span class="player-score">0</span>
+        </div>
+        <div class="score-column">
+            <span class="label">Computer's Score</span>
+            <span class="computer-score">0</span>
+        </div>
+    </div>
+    <div class="winner"></div>
+    <div class="buttons">
+        <button class="btn">Rock</button>
+        <button class="btn">Paper</button>
+        <button class="btn">Scissors</button>
+    </div>
+    <div class="round-info"></div>
+    <script src="script.js"></script>
 </body>
+
 </html>

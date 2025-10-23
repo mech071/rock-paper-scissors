@@ -1,60 +1,44 @@
-function getUser() 
-{
-    let a = prompt("Rock, Paper or Scissors?")
-    a=a[0].toUpperCase()+a.slice(1).toLowerCase()
-    return a
+let playerScore = 0;
+let computerScore = 0;
+
+const buttons = document.querySelectorAll(".btn");
+const roundInfo = document.querySelector(".round-info");
+const winnerDisplay = document.querySelector(".winner");
+
+function getUser(e) {
+    let choice = e.target.textContent;
+    return choice[0].toUpperCase() + choice.slice(1).toLowerCase();
 }
 
-function getComputer() 
-{
-    let b=Math.floor(Math.random() * 3) + 1
-    switch(b)
-    {
-        case 1:
-            return "Rock"
-        case 2:
-            return "Paper"
-        case 3:
-            return "Scissors"
+function getComputer() {
+    const choices = ["Rock", "Paper", "Scissors"];
+    return choices[Math.floor(Math.random() * 3)];
+}
+
+function playRound(userChoice) {
+    const computerChoice = getComputer();
+
+    if (userChoice === computerChoice) {
+        roundInfo.textContent = `Tie! Both chose ${userChoice}`;
+    }
+    else if ((userChoice === "Rock" && computerChoice === "Scissors") || (userChoice === "Paper" && computerChoice === "Rock") || (userChoice === "Scissors" && computerChoice === "Paper")) {
+        playerScore++;
+        roundInfo.textContent = `You chose ${userChoice}, Computer chose ${computerChoice}. You win this round!`;
+    } else {
+        computerScore++;
+        roundInfo.textContent = `You chose ${userChoice}, Computer chose ${computerChoice}. Computer wins this round!`;
+    }
+
+    document.querySelector(".player-score").textContent = playerScore;
+    document.querySelector(".computer-score").textContent = computerScore;
+
+    if (playerScore === 5 || computerScore === 5) {
+        winnerDisplay.textContent = playerScore === 5 ? "You won the game!" : "Computer won the game!";
+        buttons.forEach(btn => btn.disabled = true);
     }
 }
 
-let n = 0
-let c = 0
-let k = 0
-
-function Game(n, c, k) 
-{
-    if (n == 5) {
-        console.log(`Final Score - You: ${c}, Computer: ${k}`);
-        if (c > k) console.log("You win!");
-        else if (k > c) console.log("Computer wins!");
-        else console.log("It's a tie!");
-        return;
-    }
-    let user = getUser()
-    let comp = getComputer()
-    switch (user) {
-        case "Rock":
-            if (comp == "Paper") k++
-            if (comp == "Scissors") c++
-            break
-        case "Scissors":
-            if (comp == "Rock") k++
-            if (comp == "Paper") c++
-            break
-        case "Paper":
-            if (comp == "Rock") c++
-            if (comp == "Scissors") k++
-            break
-        default:
-            console.log("Invalid input! Try again.");
-            return Game(n, c, k);
-    }
-    console.log(`Round ${n + 1}: You chose ${user}, Computer chose ${comp}`);
-    if(user==comp) console.log("TIE")
-    console.log(`Your Score: ${c} | Computer's Score: ${k}`)
-    return Game(n + 1, c, k)
-}
-
-Game(n, c, k)
+buttons.forEach(btn => btn.addEventListener("click", e => {
+    const userChoice = getUser(e);
+    playRound(userChoice);
+}));
